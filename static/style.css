@@ -123,7 +123,6 @@ textboxe{
 }
 
 .my-textarea {
-  text-transform: uppercase;
   font-family: "Bug", sans-serif;
   font-size: 3vh;
 }
