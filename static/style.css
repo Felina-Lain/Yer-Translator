@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Bug";
-  src: url("/static/insect.ttf");
+  src: url("https://felina-lain.github.io/Yer-Translator/static/insect.ttf");
   /* specify the URL of the font file */
 }
 
@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0;
-  background-image: url("/static/forestfloor.jpg");
+  background-image: url("https://felina-lain.github.io/Yer-Translator/static/forestfloor.jpg");
   background-size: cover;
 }
 
