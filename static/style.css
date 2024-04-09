@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Bug";
+  src: url("/static/insect.ttf");
+  /* specify the URL of the font file */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/forestfloor.jpg");
+  background-size: cover;
+}
+
+h1 {
+  text-align:center;
+  font-size: 10vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+}
+h2 {
+  text-align:center;
+  font-size: 5vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+  margin: 0rem;
+}
+
+h5{
+  text-align:center;
+  text-transform: uppercase;
+  font-family: "Bug", sans-serif;
+  font-size: 3vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+  line-height: 1.75;
+  margin-top: 0rem;
+}
+
+ligne {
+  display: flex;
+  justify-content: center;
+}
+
+.small-img {
+  width: 25vw;
+  height: 25vh;
+}
+.very-small-img {
+  width: 5vw;
+  height: 10vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="number"] {
+  width: 300px;
+  height: 80px;
+  font-size: 32px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 80px;
+  font-size: 32px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  background-color: #3366cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+aligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aligne a
+{
+  flex-grow: 1;
+  width: 5%;
+}
+
+answer-column{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 5;
+  width: 95%;
+}
+
+textboxe{
+  display: flex;
+  justify-content: center;
+}
+
+.my-textarea {
+  text-transform: uppercase;
+  font-family: "Bug", sans-serif;
+  font-size: 3vh;
+}
