@@ -131,6 +131,9 @@ textboxe{
   font-family: "Bug", sans-serif;
   font-size: 3vh;
 }
+.normal-textarea {
+  font-size: 3vh;
+}
 .bugs_symbols{
   font-family: "Bug", sans-serif;
 }
