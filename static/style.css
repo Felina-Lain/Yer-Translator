@@ -1,7 +1,13 @@
 @font-face {
   font-family: "Bug";
-  src: url("https://felina-lain.github.io/Yer-Translator/static/insect.ttf");
+  src: url("insect.ttf");
   /* specify the URL of the font file */
+}
+
+html{
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
 }
 
 body {
@@ -9,10 +15,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 99vh;
-  width: 97vw;
   margin: 0;
-  background-image: url("https://felina-lain.github.io/Yer-Translator/static/forestfloor.jpg");
+  background-image: url("forestfloor.jpg");
   background-size: cover;
 }
 
@@ -56,12 +60,19 @@ ligne {
 }
 
 .small-img {
-  width: 25vw;
-  height: 25vh;
+  width: 75%;
+  height: 75%;
 }
 .very-small-img {
-  width: 5vw;
-  height: 10vh;
+  width: 100%;
+  height: 100%;
+  box-shadow:
+  0 0 20px white,
+  0 0 20px white,
+  0 0 20px white,
+  0 0 20px white,
+  0 0 20px white,
+  0 0 20px white;
 }
 
 form {
@@ -101,12 +112,15 @@ aligne {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 100%;
 }
 
 aligne a
 {
   flex-grow: 1;
   width: 5%;
+  align-self: flex-start;
+  justify-self: start;
 }
 
 answer-column{
@@ -122,18 +136,14 @@ textboxe{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  align-items: center;  
 }
 
-.my-textarea {
-  font-family: "Bug", sans-serif;
-  font-size: 3vh;
+textarea{
+  font-size: 4vh;
 }
-.normal-textarea {
-  font-size: 3vh;
-}
+
 .bugs_symbols{
   font-family: "Bug", sans-serif;
+  font-size: 3vh;
 }

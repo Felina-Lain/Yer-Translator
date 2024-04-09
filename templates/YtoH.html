@@ -1,6 +1,5 @@
-<link rel="stylesheet" href="https://felina-lain.github.io/Yer-Translator/static/style.css">
-
-<div class="background-overlay">
+<title>YtoH</title>
+<link rel="stylesheet" href="../static/style.css">
 
 <h1>Dziko Number Translator</h1>
 <h5>'Tx &nbsp;&nbsp;&nbsp; 'Yat &nbsp;&nbsp;&nbsp; TxZy</h5>
@@ -8,17 +7,15 @@
   <h5>Yers &nbsp;&nbsp;&nbsp; Kor &nbsp;&nbsp;&nbsp; TxZy'Fresk'Lan</h5>
 
 <ligne>
-  <form method="POST" action=/YtoH>
-    <input class="bugs_symbols" type="text" name="input_message">
-    <input type="submit" name="Valider">
-  </form>
+  <input class="bugs_symbols" type="text" id="input_message" name="input_message">
+  <input type="submit" id="valider_button" name="Valider">
 </ligne>
 
     <aligne>
-    <a href="index.html"><img src="https://felina-lain.github.io/Yer-Translator/static/return.png" class="very-small-img"/></a>
+    <a href="../index.html"><img src="../static/return.png" class="very-small-img"/></a>
     <answer-column>
-      <h2>{{message}}</h2>
+      <h2 id="message"></h2>
     </answer-column>
 </aligne>
 
-</div>
+<script src="../static/script.js"></script>
