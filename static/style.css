@@ -132,11 +132,19 @@ answer-column{
   width: 95%;
 }
 
+spacer-column{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
 textboxe{
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;  
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;  
 }
 
 textarea{
@@ -146,4 +154,59 @@ textarea{
 .bugs_symbols{
   font-family: "Bug", sans-serif;
   font-size: 3vh;
+}
+#visualDictionary{
+  min-width: 100%;
+}
+/* Style for visual dictionary */
+visual-dico {
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: x-large;
+  flex-wrap: wrap; /* Allow columns to wrap down */
+}
+
+/* Style for each column */
+dico-eng,
+dico-yer-signs,
+dico-yer,
+dico-context {
+  flex: 1 1 auto; /* Allow columns to grow and shrink, but start at their initial size */
+  min-width: 0; /* Allow content to shrink if necessary */
+  margin-right: 10px; /* Add spacing between columns */
+}
+
+/* Style for each column */
+visual-dico > * {
+  flex: 1;
+  min-width: 0; /* Allow content to shrink if necessary */
+}
+
+/* Style for English word */
+dico-eng {
+  font-weight: bold;
+  flex: 0.5;
+}
+
+/* Style for Yer word */
+dico-yer {
+  font-size: 0.8em;
+}
+
+/* Style for context */
+dico-context {
+  flex: 1.5;
+  color: #171717;
+  font-style: italic;
+}
+
+dico-yer-signs.bugs_symbols {
+  font-size: 1em;
+  flex: 1.5;
+  color: #151515;
 }
