@@ -107,7 +107,10 @@ function convertToYer(number) {
 
 
 function yerToDecimal(yerNum) {
-    if (yerNum === "'a'" || yerNum === "0") {
+    // Convert yerNum to lowercase
+    yerNum = yerNum.toLowerCase();
+    
+    if (yerNum == "'a'" || yerNum == "0") {
         return 0;
     }
 
@@ -155,14 +158,17 @@ function yerToDecimal(yerNum) {
 
     let decimalNum = 0;
     yerNum = yerNum.replace(/\s+/g, ''); // Remove all whitespace
+    console.log("despace " , yerNum);
 
     // Convert symbols or numbers to words
     for (const [symbol, word] of Object.entries(symbolToWord)) {
-        yerNum = yerNum.replace(new RegExp(symbol, 'g'), word);
+        yerNum = yerNum.split(symbol).join(word);
     }
+    console.log("replace " ,yerNum);
 
-    const parts = yerNum.split("'");
+    const parts = yerNum.split("'");    
     parts.shift(); // Remove the first empty element
+    console.log("split", parts);
 
     for (const part of parts) {
         const things = part.split('-');
@@ -171,7 +177,7 @@ function yerToDecimal(yerNum) {
             console.log(`Base '${base}' not found in baseNum object`);
             continue; // Skip processing if base is not found
         }
-        if (things.length === 2) {
+        if (things.length == 2) {
             const order = things[1];
             if (!orders.hasOwnProperty(order)) {
                 console.log(`Order '${order}' not found in orders object`);
