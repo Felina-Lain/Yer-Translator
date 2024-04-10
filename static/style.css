@@ -16,7 +16,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url("forestfloor.jpg");
+  background: linear-gradient(rgba(53, 53, 53, 0.75), rgba(53, 53, 53, 0.75)),url("forestfloor.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -213,4 +213,15 @@ dico-yer-signs.bugs_symbols {
   font-size: 1em;
   flex: 1.5;
   color: #151515;
+}
+
+p{
+  text-align:center;
+  font-size: 3vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+  margin-top: 1rem;
+  line-height: 2rem;
 }
