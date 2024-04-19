@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Bug";
-  src: url("insect.ttf");
+  src: url("insect.otf");
   /* specify the URL of the font file */
 }
 
@@ -41,7 +41,6 @@ h2 {
 
 h5{
   text-align:center;
-  text-transform: uppercase;
   font-family: "Bug", sans-serif;
   font-size: 3vh;
     text-shadow: 
@@ -211,8 +210,8 @@ dico-context {
 
 dico-yer-signs.bugs_symbols {
   font-size: 1em;
-  flex: 1.5;
   color: #151515;
+  word-wrap: break-word;
 }
 
 p{
@@ -224,4 +223,27 @@ p{
     0 0 20px white;
   margin-top: 1rem;
   line-height: 2rem;
+}
+
+p2{
+  font-family: "Bug", sans-serif;
+  text-align:center;
+  font-size: 5vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+  margin-top: 1rem;
+  line-height: 2rem;
+  margin-right: 0rem;
+}
+
+p3{
+  text-align:center;
+  font-size: 3.5vh;
+    text-shadow: 
+    0 0 20px white,
+    0 0 20px white,
+    0 0 20px white;
+  margin-top: 1rem;
 }

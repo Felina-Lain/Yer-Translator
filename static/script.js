@@ -59,13 +59,13 @@ function convertToYer(number) {
         7: ["7", "'va"],
         8: ["8", "'fa"],
         9: ["9", "'la"],
-        10: ["@", "'ra"],
-        11: ["_", "'ha"],
-        12: ["#", "'xa"],
-        13: ["$", "'ga"],
-        14: ["%", "'ba"],
-        15: ["&", "'pa"],
-        16: ["€", "'ma"]
+        10: ["C", "'ra"],
+        11: ["J", "'ha"],
+        12: ["Q", "'xa"],
+        13: ["W", "'ga"],
+        14: ["c", "'ba"],
+        15: ["j", "'pa"],
+        16: ["q", "'ma"]
     };
 
     // Define the sound indicators for orders of numbers
@@ -83,7 +83,7 @@ function convertToYer(number) {
 
     // Check if the input number is 0
     if (number === 0) {
-        return ["0", "'a'"];
+        return ["0", "'a"];
     }
 
     // Loop through the orders of numbers from highest to lowest
@@ -111,22 +111,20 @@ function convertToYer(number) {
 }
 
 function yerToDecimal(yerNum) {
-    // Convert yerNum to lowercase
-    yerNum = yerNum.toLowerCase();
     
-    if (yerNum == "'a'" || yerNum == "0") {
+    if (yerNum == "'a" || yerNum == "0") {
         return 0;
     }
 
     // Define an object mapping symbols to their corresponding words
     const symbolToWord = {
-        "@": "'ra",
-        "#": "'xa",
-        "_": "'ha",
-        "$": "'ga",
-        "%": "'ba",
-        "&": "'pa",
-        "€": "'ma",
+        "C": "'ra",
+        "Q": "'xa",
+        "J": "'ha",
+        "W": "'ga",
+        "c": "'ba",
+        "j": "'pa",
+        "q": "'ma",
         "1": "'na",
         "2": "'ka",
         "3": "'za",
@@ -259,6 +257,8 @@ function yerToDecimal(yerNum) {
     { eng: "people", yer: "yers", context: ""},
     { eng: "servant", yer: "ers", context: ""},
     { eng: "inferior", yer: "ers", context: ""},
+    { eng: "creature", yer: "er", context: ""},
+    { eng: "being", yer: "er", context: ""},
     { eng: "ancient", yer: "dr'", context: "difference with old made by pheromones, ancient is more honorific"},
     { eng: "old", yer: "dr'", context: ""},
     { eng: "tree", yer: "sra", context: ""},
@@ -310,9 +310,9 @@ function yerToDecimal(yerNum) {
     { eng: "nothing", yer: "'a'", context: "the concept of nothing, of absence, of void"},
     { eng: "meat", yer: "'fresk", context: ""},
     { eng: "flesh", yer: "'fresk", context: ""},
-    { eng: "ruins", yer: "dr'kat", context: ""},
-    { eng: "broken", yer: "dr'kat", context: ""},
-    { eng: "damaged", yer: "dr'kat", context: ""},
+    { eng: "ruins", yer: "dr'kt", context: ""},
+    { eng: "broken", yer: "dr'kt", context: ""},
+    { eng: "damaged", yer: "dr'kt", context: ""},
     { eng: "enemy", yer: "n'kta", context: ""},
     { eng: "opponent", yer: "n'kta", context: ""},
     { eng: "dream", yer: "'kra", context: ""},
@@ -322,13 +322,19 @@ function yerToDecimal(yerNum) {
     { eng: "to be", yer: "t'ril", context: ""},
     { eng: "to think", yer: "tkil", context: ""},
     { eng: "to grow", yer: "ktaz", context: ""},
-    { eng: "to dance", yer: "tx'dzr", context: ""},
+    { eng: "to dance", yer: "t'x'dzr", context: ""},
     { eng: "to move", yer: "'dzr", context: ""},
     { eng: "to love", yer: "k'ran", context: ""},
     { eng: "to care", yer: "k'ran", context: ""},
     { eng: "to hate", yer: "n'vaz", context: ""},
     { eng: "to heal", yer: "d'kin", context: ""},
-    { eng: "to destroy", yer: "'kat", context: ""},
+    { eng: "to destroy", yer: "'kt", context: ""},
+    { eng: "to sting", yer: "nal", context: ""},
+    { eng: "stinger", yer: "nal", context: ""},
+    { eng: "poison", yer: "drnal", context: ""},
+    { eng: "venom", yer: "dr'er", context: ""},
+    { eng: "spider", yer: "nar", context: ""},
+    { eng: "dridder", yer: "narsin", context: ""},  
     { eng: "", yer: "", context: ""},
 
     // Add more entries...
