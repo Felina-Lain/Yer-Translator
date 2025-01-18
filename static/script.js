@@ -94,6 +94,11 @@ function fantasyToDecimal(fantasyNumber) {
         "'xa": 12, "'ga": 13, "'ba": 14, "'pa": 15, "'ma": 16
     };
 
+    const numericDigits = {
+        "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
+        "C": 10, "J": 11, "Q": 12, "W": 13, "c": 14, "j": 15, "q": 16
+    };
+
     const ordersOfMagnitude = {
         "": 1, "-f": 16, "-v": 256, "-b": 4096, "-x": 65536, "-z": 1048576
     };
@@ -102,11 +107,20 @@ function fantasyToDecimal(fantasyNumber) {
     let total = 0;
 
     for (let component of components) {
+        // Extract the digit part and order part
         let [digitPart, orderPart] = component.split(/(?=-)/);
         orderPart = orderPart || "";
 
-        let digitValue = fantasyDigits[digitPart];
+        // Handle both numeric and fantasy digit systems
+        let digitValue = fantasyDigits[digitPart] ?? numericDigits[digitPart];
+        if (digitValue === undefined) {
+            throw new Error(`Invalid digit: ${digitPart}`);
+        }
+
         let orderValue = ordersOfMagnitude[orderPart];
+        if (orderValue === undefined) {
+            throw new Error(`Invalid order: ${orderPart}`);
+        }
 
         total += digitValue * orderValue;
     }
