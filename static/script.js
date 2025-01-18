@@ -19,10 +19,10 @@ function applyHtoYListener() {
     const message2Element = document.getElementById('message2');
 
     validerButton.addEventListener('click', function() {
-        const inputValue = parseInt(inputMessage.value);
-        const [yerNumber, yerText] = convertToYer(inputValue);
-        message1Element.textContent = yerNumber;
-        message2Element.textContent = yerText;
+    const inputValue = parseInt(inputMessage.value);
+    const { numeric, fantasy } = decimalToFantasy(inputValue);
+    message1Element.textContent = numeric;  // For numeric font rendering
+    message2Element.textContent = fantasy; // For fantasy text rendering
     });
 }
 
@@ -33,7 +33,7 @@ function applyYtoHListener() {
 
     validerButton.addEventListener('click', function() {
         const inputValue = inputMessage.value;
-        const decimalValue = yerToDecimal(inputValue);
+        const decimalValue = fantasyToDecimal(inputValue);
         messageElement.textContent = decimalValue;
     });
 }
@@ -47,151 +47,71 @@ function applyYerWriterListener() {
     });
 }
 
-function convertToYer(number) {
-    // Define the numerals
-    const numerals = {
-        1: ["1", "'na"],
-        2: ["2", "'ka"],
-        3: ["3", "'za"],
-        4: ["4", "'ta"],
-        5: ["5", "'sa"],
-        6: ["6", "'da"],
-        7: ["7", "'va"],
-        8: ["8", "'fa"],
-        9: ["9", "'la"],
-        10: ["C", "'ra"],
-        11: ["J", "'ha"],
-        12: ["Q", "'xa"],
-        13: ["W", "'ga"],
-        14: ["c", "'ba"],
-        15: ["j", "'pa"],
-        16: ["q", "'ma"]
-    };
+// Updated decimal to fantasy converter
+function decimalToFantasy(decimal) {
+    const fantasyDigits = [
+        "'a", "'na", "'ka", "'za", "'ta", "'sa", "'da", "'va", "'fa", "'la",
+        "'ra", "'ha", "'xa", "'ga", "'ba", "'pa", "'ma"
+    ];
 
-    // Define the sound indicators for orders of numbers
-    const orders = {
-        16: '-f ',
-        256: '-v ',
-        4096: '-b ',
-        65536: '-x ',
-        1048576: '-z '
-    };
+    const numericDigits = [
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "J", "Q", "W", "c", "j", "q"
+    ];
 
-    // Initialize the Yer representation of the number
-    let yerNumber = "";
-    let yerText = "";
+    const ordersOfMagnitude = ["", "-f", "-v", "-b", "-x", "-z"];
 
-    // Check if the input number is 0
-    if (number === 0) {
-        return ["0", "'a"];
-    }
+    if (decimal === 0) return { numeric: "0", fantasy: "'a" };
 
-    // Loop through the orders of numbers from highest to lowest
-    Object.keys(orders).sort((a, b) => b - a).forEach(order => {
-        order = parseInt(order);
-        if (number >= order) {
-            // Calculate the amount of this order in the input number
-            const amount = Math.floor(number / order);
-            // Append the corresponding numeral to the Yer representation
-            yerNumber += numerals[amount][0] + orders[order];
-            yerText += numerals[amount][1] + orders[order];
-            // Update the input number with the remainder after removing this order
-            number -= order * amount;
+    let hex = decimal.toString(16);
+    let numericResult = [];
+    let fantasyResult = [];
+    let magnitude = 0;
+
+    while (hex.length > 0) {
+        let digit = parseInt(hex.slice(-1), 16);
+        hex = hex.slice(0, -1);
+
+        if (digit !== 0) {
+            let numericDigit = numericDigits[digit];
+            let fantasyDigit = fantasyDigits[digit];
+            let order = ordersOfMagnitude[magnitude];
+
+            numericResult.unshift(numericDigit + order);
+            fantasyResult.unshift(fantasyDigit + order);
         }
-    });
 
-    if (number !== 0) {
-        const [symbol, name] = numerals[number];
-        yerNumber += symbol;
-        yerText += name;
+        magnitude++;
     }
 
-    // Return the Yer representation of the number
-    return [yerNumber, yerText];
+    return { numeric: numericResult.join(" "), fantasy: fantasyResult.join(" ") };
 }
 
-function yerToDecimal(yerNum) {
-    
-    if (yerNum == "'a" || yerNum == "0") {
-        return 0;
-    }
-
-    // Define an object mapping symbols to their corresponding words
-    const symbolToWord = {
-        "C": "'ra",
-        "Q": "'xa",
-        "J": "'ha",
-        "W": "'ga",
-        "c": "'ba",
-        "j": "'pa",
-        "q": "'ma",
-        "1": "'na",
-        "2": "'ka",
-        "3": "'za",
-        "4": "'ta",
-        "5": "'sa",
-        "6": "'da",
-        "7": "'va",
-        "8": "'fa",
-        "9": "'la"
-        // Add more mappings as needed
+// Updated fantasy to decimal converter
+function fantasyToDecimal(fantasyNumber) {
+    const fantasyDigits = {
+        "'a": 0, "'na": 1, "'ka": 2, "'za": 3, "'ta": 4, "'sa": 5,
+        "'da": 6, "'va": 7, "'fa": 8, "'la": 9, "'ra": 10, "'ha": 11,
+        "'xa": 12, "'ga": 13, "'ba": 14, "'pa": 15, "'ma": 16
     };
 
-    const orders = {"spe": 1, "f": 16, "v": 256, "b": 4096, "x": 65536, "z": 1048576};
-
-    const baseNum = {
-        "na": 1,
-        "ka": 2,
-        "za": 3,
-        "ta": 4,
-        "sa": 5,
-        "da": 6,
-        "va": 7,
-        "fa": 8,
-        "la": 9,
-        "ra": 10,
-        "ha": 11,
-        "xa": 12,
-        "ga": 13,
-        "ba": 14,
-        "pa": 15,
-        "ma": 16
+    const ordersOfMagnitude = {
+        "": 1, "-f": 16, "-v": 256, "-b": 4096, "-x": 65536, "-z": 1048576
     };
 
-    let decimalNum = 0;
-    yerNum = yerNum.replace(/\s+/g, ''); // Remove all whitespace
-    console.log("despace " , yerNum);
+    const components = fantasyNumber.split(" ");
+    let total = 0;
 
-    // Convert symbols or numbers to words
-    for (const [symbol, word] of Object.entries(symbolToWord)) {
-        yerNum = yerNum.split(symbol).join(word);
-    }
-    console.log("replace " ,yerNum);
+    for (let component of components) {
+        let [digitPart, orderPart] = component.split(/(?=-)/);
+        orderPart = orderPart || "";
 
-    const parts = yerNum.split("'");    
-    parts.shift(); // Remove the first empty element
-    console.log("split", parts);
+        let digitValue = fantasyDigits[digitPart];
+        let orderValue = ordersOfMagnitude[orderPart];
 
-    for (const part of parts) {
-        const things = part.split('-');
-        const base = things[0];
-        if (!baseNum.hasOwnProperty(base)) {
-            console.log(`Base '${base}' not found in baseNum object`);
-            continue; // Skip processing if base is not found
-        }
-        if (things.length == 2) {
-            const order = things[1];
-            if (!orders.hasOwnProperty(order)) {
-                console.log(`Order '${order}' not found in orders object`);
-                continue; // Skip processing if order is not found
-            }
-            decimalNum += baseNum[base] * orders[order];
-        } else {
-            decimalNum += baseNum[base];
-        }
+        total += digitValue * orderValue;
     }
 
-    return decimalNum;
+    return total;
 }
   
   const Words = [
