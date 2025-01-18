@@ -127,189 +127,72 @@ function fantasyToDecimal(fantasyNumber) {
 
     return total;
 }
-  
-  const Words = [
-    { eng: "me", yer: "fy", context: "" },
-    { eng: "i", yer: "fy", context: "" },
-    { eng: "mine", yer: "fy", context: "" },
-    { eng: "you", yer: "ly", context: "" },
-    { eng: "your", yer: "ly", context: "" },
-    { eng: "yours", yer: "txly", context: "" },
-    { eng: "he", yer: "zy", context: "" },
-    { eng: "she", yer: "zy", context: "" },
-    { eng: "it", yer: "zy", context: "" },
-    { eng: "his", yer: "zy", context: "" },
-    { eng: "hers", yer: "zy", context: "" },
-    { eng: "its", yer: "zy", context: "" },
-    { eng: "us", yer: "fyly", context: "me and you, not another" },
-    { eng: "us", yer: "fylyzy", context: "me and you and another" },
-    { eng: "us", yer: "fyzy", context: "me and another but not you" },
-    { eng: "we", yer: "fyly", context: "me and you, not another" },
-    { eng: "we", yer: "fylyzy", context: "me and you and another" },
-    { eng: "we", yer: "fyzy", context: "me and another but not you" },
-    { eng: "ours", yer: "fyly", context: "ours, mine and yours" },
-    { eng: "ours", yer: "fylyzy", context: "ours, mine yours and anothers" },
-    { eng: "ours", yer: "fyzy", context: "ours, mine and anothers but not yours" },
-    { eng: "they", yer: "txzy", context: "others" },
-    { eng: "their", yer: "txzy", context: "one item owned by others" },
-    { eng: "theirs", yer: "txzy", context: "multiple items owned by others" },
-    { eng: "plural", yer: "tx", context: "prefix" },
-    { eng: "male", yer: "'ryk", context: "suffix"},
-    { eng: "female", yer: "niz'", context: "suffix"},
-    { eng: "now", yer: "ka", context: "prefix, attach to verb, usually skipped because the present is default time" },
-    { eng: "past", yer: "na", context: "prefix, attach to verb" },
-    { eng: "future", yer: "ra", context: "prefix, attach to verb" },
-    { eng: "question", yer: "'zk", context: "general question word"},
-    { eng: "query", yer: "'zk", context: "general question word"},
-    { eng: "ask", yer: "'zk", context: "general question word"},
-    { eng: "what", yer: "'zak", context: ""},
-    { eng: "when", yer: "'zik", context: ""},
-    { eng: "where", yer: "'zek", context: ""},
-    { eng: "who", yer: "'zuk", context: ""},
-    { eng: "how", yer: "'zok", context: ""},
-    { eng: "left", yer: "'kod", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "right", yer: "'dok", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "inside", yer: "'rin", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "outside", yer: "'nir", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "ahead", yer: "'kid", context: "in front,always relative to the speaker, unless precised otherwise"},
-    { eng: "in front of", yer: "'kid", context: "relative to the speaker, unless precised otherwise"},
-    { eng: "behind", yer: "'dik", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "near", yer: "'ron", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "far", yer: "'nor", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "here", yer: "'ron", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "away", yer: "'nor", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "up", yer: "'knd", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "down", yer: "'dnk", context: "always relative to the speaker, unless precised otherwise"},
-    { eng: "for", yer: "'kor", context: ""},
-    { eng: "instead", yer: "'kro", context: ""},
-    { eng: "all", yer: "dziko", context: ""},
-    { eng: "everything", yer: "dziko", context: ""},
-    { eng: "whole", yer: "dziko", context: ""},
-    { eng: "soil", yer: "kat", context: ""},
-    { eng: "earth", yer: "kat", context: ""},
-    { eng: "dirt", yer: "kat", context: ""},
-    { eng: "people", yer: "yers", context: ""},
-    { eng: "servant", yer: "ers", context: ""},
-    { eng: "inferior", yer: "ers", context: ""},
-    { eng: "creature", yer: "er", context: ""},
-    { eng: "being", yer: "er", context: ""},
-    { eng: "ancient", yer: "dr'", context: "difference with old made by pheromones, ancient is more honorific"},
-    { eng: "old", yer: "dr'", context: ""},
-    { eng: "tree", yer: "sra", context: ""},
-    { eng: "big", yer: "vrk", context: ""},
-    { eng: "giant", yer: "vrk", context: "difference with big made by pheromones"},
-    { eng: "alive", yer: "'ril", context: ""},
-    { eng: "dead", yer: "'rsin", context: ""},
-    { eng: "death", yer: "'rsin", context: ""},
-    { eng: "swarm", yer: "rak", context: "very negative connotation to the word"},
-    { eng: "disease", yer: "dkin'", context: ""},
-    { eng: "city", yer: "raz", context: ""},
-    { eng: "sand", yer: "mni", context: ""},
-    { eng: "amber", yer: "ksin", context: "precious ressource also works"},
-    { eng: "market", yer: "razy", context: ""},
-    { eng: "water", yer: "tzir", context: ""},
-    { eng: "wet", yer: "tzir", context: ""},
-    { eng: "fire", yer: "txir", context: ""},
-    { eng: "burn", yer: "txir", context: ""},
-    { eng: "air", yer: "yn", context: ""},
-    { eng: "breath", yer: "yn", context: ""},
-    { eng: "rock", yer: "g'n", context: ""},
-    { eng: "stone", yer: "g'n", context: ""},
-    { eng: "food", yer: "r'sik", context: ""},
-    { eng: "weapon", yer: "k'tra", context: ""},
-    { eng: "language", yer: "tx'yat", context: ""},
-    { eng: "number", yer: "tx'", context: ""},
-    { eng: "amount", yer: "tx'", context: ""},
-    { eng: "word", yer: "yat", context: ""},
-    { eng: "ocean", yer: "tzir'tx", context: ""},
-    { eng: "sea", yer: "tzir'tx", context: ""},
-    { eng: "lake", yer: "tzir'tx", context: "great lakes, very big lakes"},
-    { eng: "blade", yer: "k'traz", context: "any sharp edged weapon"},
-    { eng: "sword", yer: "k'traz", context: "any sharp edged weapon"},
-    { eng: "knife", yer: "k'traz", context: "any sharp edged weapon"},
-    { eng: "moon", yer: "'nik", context: ""},
-    { eng: "sun", yer: "'faz", context: ""},
-    { eng: "light", yer: "'faz", context: ""},
-    { eng: "day", yer: "'faz", context: ""},
-    { eng: "night", yer: "'nik", context: ""},
-    { eng: "flower", yer: "vl'ie'zol", context: ""},
-    { eng: "small", yer: "vl", context: ""},
-    { eng: "colour", yer: "'zol", context: "color"},
-    { eng: "plant", yer: "'ie", context: ""},
-    { eng: "size", yer: "rda", context: ""},
-    { eng: "neutral", yer: "vksa", context: ""},
-    { eng: "zero", yer: "'a", context: "the number, not to be confused with the concept of nothing"},
-    { eng: "0", yer: "'a", context: "the number, not to be confused with the concept of nothing"},
-    { eng: "absence", yer: "'a'", context: "the concept of nothing, of absence, of void"},
-    { eng: "none", yer: "'a'", context: "the concept of nothing, of absence, of void"},
-    { eng: "void", yer: "'a'", context: "the concept of nothing, of absence, of void"},
-    { eng: "nothing", yer: "'a'", context: "the concept of nothing, of absence, of void"},
-    { eng: "meat", yer: "'fresk", context: ""},
-    { eng: "flesh", yer: "'fresk", context: ""},
-    { eng: "ruins", yer: "dr'kt", context: ""},
-    { eng: "broken", yer: "dr'kt", context: ""},
-    { eng: "damaged", yer: "dr'kt", context: ""},
-    { eng: "enemy", yer: "n'kta", context: ""},
-    { eng: "opponent", yer: "n'kta", context: ""},
-    { eng: "dream", yer: "'kra", context: ""},
-    { eng: "speed", yer: "niir", context: ""},
-    { eng: "fast", yer: "niir", context: ""},
-    { eng: "to unite", yer: "dzrn", context: ""},
-    { eng: "to be", yer: "t'ril", context: ""},
-    { eng: "to think", yer: "tkil", context: ""},
-    { eng: "to grow", yer: "ktaz", context: ""},
-    { eng: "to dance", yer: "t'x'dzr", context: ""},
-    { eng: "to move", yer: "'dzr", context: ""},
-    { eng: "to love", yer: "k'ran", context: ""},
-    { eng: "to care", yer: "k'ran", context: ""},
-    { eng: "to hate", yer: "n'vaz", context: ""},
-    { eng: "to heal", yer: "d'kin", context: ""},
-    { eng: "to destroy", yer: "'kt", context: ""},
-    { eng: "to sting", yer: "nal", context: ""},
-    { eng: "stinger", yer: "nal", context: ""},
-    { eng: "poison", yer: "drnal", context: ""},
-    { eng: "venom", yer: "dr'er", context: ""},
-    { eng: "spider", yer: "nar", context: ""},
-    { eng: "dridder", yer: "narsin", context: ""},  
-    { eng: "", yer: "", context: ""},
 
-    // Add more entries...
-  ];
-  
-  const userInput = document.getElementById("userInput");
-  const visualDictionary = document.getElementById("visualDictionary");
-  
-  userInput.addEventListener("input", function() {
-    const searchTerm = userInput.value.toLowerCase();
-  
-    // Clear previous entries
-    visualDictionary.innerHTML = "";
-  
-    // Iterate through the Words array and find matching entries
-    Words.forEach(entry => {
-      if (entry.eng.toLowerCase().includes(searchTerm) || entry.yer.toLowerCase().includes(searchTerm)) {
-        // Create visual dictionary entry
-        const visualDico = document.createElement("visual-dico");
-  
-        const dicoEng = document.createElement("dico-eng");
-        dicoEng.textContent = entry.eng;
-  
-        const dicoYerSigns = document.createElement("dico-yer-signs");
-        dicoYerSigns.className = "bugs_symbols";
-        dicoYerSigns.textContent = entry.yer;
-  
-        const dicoYer = document.createElement("dico-yer");
-        dicoYer.textContent = entry.yer;
-  
-        const dicoContext = document.createElement("dico-context");
-        dicoContext.textContent = entry.context;
-  
-        visualDico.appendChild(dicoEng);
-        visualDico.appendChild(dicoYerSigns);
-        visualDico.appendChild(dicoYer);
-        visualDico.appendChild(dicoContext);
-  
-        visualDictionary.appendChild(visualDico);
-      }
+const sheetURL = 'https://docs.google.com/spreadsheets/d/11AHg5BiwKfqpTXc99DTabq-Bms8qtctLh1WTIKtyp2A/gviz/tq?tqx=out:json';
+const userInput = document.getElementById("userInput");
+const visualDictionary = document.getElementById("visualDictionary");
+
+// Function to load words from Google Sheets
+async function loadWordsFromSheet() {
+    try {
+        const response = await fetch(sheetURL);
+        const text = await response.text();
+        const json = JSON.parse(text.substring(47).slice(0, -2)); // Parse JSONP format
+
+        // Extract rows into a usable format
+        const words = json.table.rows.map(row => ({
+            eng: row.c[0]?.v || "",  // English word
+            yer: row.c[1]?.v || "", // Yer language equivalent
+            context: row.c[2]?.v || "" // Context or additional information
+        }));
+
+        console.log("Words loaded from Google Sheets:", words);
+        return words;
+    } catch (error) {
+        console.error("Error loading words from Google Sheets:", error);
+        return [];
+    }
+}
+
+// Initialize and set up the visual dictionary
+async function setupVisualDictionary() {
+    const Words = await loadWordsFromSheet();
+
+    userInput.addEventListener("input", function () {
+        const searchTerm = userInput.value.toLowerCase();
+
+        // Clear previous entries
+        visualDictionary.innerHTML = "";
+
+        // Iterate through the Words array and find matching entries
+        Words.forEach(entry => {
+            if (entry.eng.toLowerCase().includes(searchTerm) || entry.yer.toLowerCase().includes(searchTerm)) {
+                // Create visual dictionary entry
+                const visualDico = document.createElement("visual-dico");
+
+                const dicoEng = document.createElement("dico-eng");
+                dicoEng.textContent = entry.eng;
+
+                const dicoYerSigns = document.createElement("dico-yer-signs");
+                dicoYerSigns.className = "bugs_symbols";
+                dicoYerSigns.textContent = entry.yer;
+
+                const dicoYer = document.createElement("dico-yer");
+                dicoYer.textContent = entry.yer;
+
+                const dicoContext = document.createElement("dico-context");
+                dicoContext.textContent = entry.context;
+
+                visualDico.appendChild(dicoEng);
+                visualDico.appendChild(dicoYerSigns);
+                visualDico.appendChild(dicoYer);
+                visualDico.appendChild(dicoContext);
+
+                visualDictionary.appendChild(visualDico);
+            }
+        });
     });
-  });
+}
+
+// Call the setup function to initialize everything
+setupVisualDictionary();
