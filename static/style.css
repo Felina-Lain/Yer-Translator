@@ -5,256 +5,230 @@
 }
 
 html{
-  min-height: 100%;
-  min-width: 100%;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  background: linear-gradient(rgba(53, 53, 53, 0.75), rgba(53, 53, 53, 0.75)),url("forestfloor.jpg");
-  background-size: cover;
+  background: linear-gradient(0deg, rgba(190,161,116,1) 0%, rgba(224,212,176,1) 50%, rgba(165,174,140,1) 100%);
+  border: 100px solid transparent;
+  border-image: url('/static/border.png') 30% round;
+  margin: 0; /* Ensure no extra margin is applied */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-h1 {
-  text-align:center;
-  font-size: 10vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-}
-h2 {
-  text-align:center;
-  font-size: 5vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-  margin: 0rem;
-}
-
-h5{
-  text-align:center;
-  font-family: "Bug", sans-serif;
-  font-size: 3vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-  line-height: 1.75;
-  margin-top: 0rem;
-}
-
-ligne {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-ligne-input {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  flex-direction: column;
-  align-items:center;
-}
-
-
-.small-img {
-  width: 14vw;
-  height: 30vh;
-}
-
-.very-small-img {
-  width: 100%;
-  height: 100%;
-  box-shadow:
-  0 0 20px white,
-  0 0 20px white,
-  0 0 20px white,
-  0 0 20px white,
-  0 0 20px white,
-  0 0 20px white;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input[type="number"] {
-  width: 300px;
-  height: 80px;
-  font-size: 32px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  width: 300px;
-  height: 80px;
-  font-size: 32px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-input[type="submit"] {
-  width: 150px;
-  height: 50px;
-  font-size: 18px;
-  background-color: #3366cc;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-aligne {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 100%;
-}
-
-aligne a
-{
-  flex-grow: 1;
-  width: 5%;
-  align-self: flex-start;
-  position: fixed;
-  top: 20px;
-  left: 10px;
-}
-
-answer-column{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 5;
-  min-width: 95%;
-}
-
-spacer-column{
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-}
-
-textboxe{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  width: 95%;  
-}
-
-textarea{
-  font-size: 4vh;
 }
 
 .bugs_symbols{
   font-family: "Bug", sans-serif;
   font-size: 3vh;
 }
-#visualDictionary{
-  min-width: 100%;
-}
-/* Style for visual dictionary */
-visual-dico {
-  background-color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
+/* Custom CSS (keep this in your style.css) */
+#visualDictionary visual-dico {
+  background-color: rgba(255, 255, 255, 0.108);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: x-large;
-  flex-wrap: wrap; /* Allow columns to wrap down */
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 135%;
+  border-radius: 0.5rem;  /* equivalent to Tailwind's rounded-lg */
+  overflow: hidden;       /* ensures child content respects the rounded corners */
 }
 
-/* Style for each column */
-dico-eng,
-dico-yer-signs,
-dico-yer,
-dico-context {
-  flex: 1 1 auto; /* Allow columns to grow and shrink, but start at their initial size */
-  min-width: 0; /* Allow content to shrink if necessary */
-  margin-right: 10px; /* Add spacing between columns */
-}
-
-/* Style for each column */
-visual-dico > * {
-  flex: 1;
-  min-width: 0; /* Allow content to shrink if necessary */
-}
-
-/* Style for English word */
-dico-eng {
-  font-weight: bold;
+#visualDictionary dico-eng {
   flex: 0.5;
+  font-weight: bold;
 }
 
-/* Style for Yer word */
-dico-yer {
+#visualDictionary dico-synonyms {
+  flex: 1;
+  font-weight: bold;
   font-size: 0.8em;
 }
 
-/* Style for context */
-dico-context {
+#visualDictionary dico-yer {
+  flex: 0.8;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+#visualDictionary dico-context {
   flex: 1.5;
-  color: #171717;
   font-style: italic;
+  color: #171717;
 }
 
-dico-yer-signs.bugs_symbols {
-  font-size: 1em;
-  color: #151515;
+#visualDictionary dico-yer-signs.bugs_symbols {
   word-wrap: break-word;
+  color: #151515;
+  font-size: 1.5em;
 }
 
-p{
-  text-align:center;
-  font-size: 3vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-  margin-top: 1rem;
+/* Tailwind-like spacing (can remove if using Tailwind classes) */
+#visualDictionary visual-dico > * {
+  @apply mr-2.5; /* Equivalent to margin-right: 10px */
+  min-width: 0;
+}
+
+/*_______________________________________________________________________*/
+
+/* Main container */
+.mainBox {
+  width: 100%;
+  max-width: 1280px; /* Equivalent to Tailwind's container */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem; /* py-8 px-4 */
+}
+
+/* Centered section */
+.centeredSection {
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+/* Page title */
+.pageTitle {
+  font-size: 1.5rem; /* text-2xl */
   line-height: 2rem;
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem; /* mb-2 */
 }
 
-p2{
-  font-family: "Bug", sans-serif;
-  text-align:center;
-  font-size: 5vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-  margin-top: 1rem;
+/* Two-column grid layout */
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* grid-cols-2 */
+  gap: 2rem; /* gap-8 */
+}
+
+/* Column styling */
+.column {
+  display: flex;
+  flex-direction: column; /* flex-col */
+  align-items: center; /* items-center */
+  text-align: center; /* text-center */
+}
+
+/* Column content */
+.columnContent {
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+/* Image styling (inline styles in HTML can stay as-is) */
+img {
+  height: 66.66%;
+}
+
+/* Reusable Classes */
+.mainBox {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
+
+.centeredSection {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
   line-height: 2rem;
-  margin-right: 0rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-p3{
-  text-align:center;
-  font-size: 3.5vh;
-    text-shadow: 
-    0 0 20px white,
-    0 0 20px white,
-    0 0 20px white;
-  margin-top: 1rem;
+.contextText {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Table Grid */
+.tableGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid #000;
+}
+
+.tableCell {
+  height: 2rem;
+  padding: 0.25rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Two Columns Below the Table */
+.twoColumnLayout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 14rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.columnContent {
+  margin-bottom: 0.5rem;
+}
+
+.columnTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.columnImage {
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50% 110%;
+  min-height: 8rem;
+}
+
+.bg-toMan {
+  background-image: url(/static/toManNoBG.png);
+}
+
+.bg-toBug {
+  background-image: url(/static/toBugNoBG.png);
+}
+
+/* Return Button */
+.returnButton {
+  position: fixed;
+  top: 5rem;
+  left: 5rem;
+  z-index: 50;
+}
+
+.returnIcon {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.2s;
+}
+
+.returnIcon:hover {
+  transform: scale(1.1);
 }

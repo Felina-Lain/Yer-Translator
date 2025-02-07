@@ -143,7 +143,8 @@ async function loadWordsFromSheet() {
         const words = json.table.rows.map(row => ({
             eng: row.c[0]?.v || "",  // English word
             yer: row.c[1]?.v || "", // Yer language equivalent
-            context: row.c[2]?.v || "" // Context or additional information
+            context: row.c[2]?.v || "", // Context or additional information
+            synonyms: row.c[4]?.v || "" // Synonyms (new column)
         }));
 
         console.log("Words loaded from Google Sheets:", words);
@@ -152,6 +153,24 @@ async function loadWordsFromSheet() {
         console.error("Error loading words from Google Sheets:", error);
         return [];
     }
+}
+
+// Mapping object for exceptions
+const yerExceptions = {
+    "C": "'ra",
+    "J": "'a",
+    "Q": "'xa",
+    "W": "'ga",
+    "c": "'ba",
+    "j": "'pa",
+    "q": "'ma",
+    // Add other exceptions here as key-value pairs
+};
+
+// Function to get the correct Yer value based on exceptions
+function getCorrectYerValue(yerValue) {
+    // Check if the Yer value is in the exceptions mapping
+    return yerExceptions[yerValue] || yerValue; // Return the replacement if it exists, otherwise return the original value
 }
 
 // Initialize and set up the visual dictionary
@@ -166,7 +185,11 @@ async function setupVisualDictionary() {
 
         // Iterate through the Words array and find matching entries
         Words.forEach(entry => {
-            if (entry.eng.toLowerCase().includes(searchTerm) || entry.yer.toLowerCase().includes(searchTerm)) {
+            if (
+                entry.eng.toLowerCase().includes(searchTerm) ||
+                entry.yer.toLowerCase().includes(searchTerm) ||
+                entry.synonyms.toLowerCase().includes(searchTerm) // Include synonyms in the search
+            ) {
                 // Create visual dictionary entry
                 const visualDico = document.createElement("visual-dico");
 
@@ -178,15 +201,19 @@ async function setupVisualDictionary() {
                 dicoYerSigns.textContent = entry.yer;
 
                 const dicoYer = document.createElement("dico-yer");
-                dicoYer.textContent = entry.yer;
+                dicoYer.textContent =  getCorrectYerValue(entry.yer);
 
                 const dicoContext = document.createElement("dico-context");
                 dicoContext.textContent = entry.context;
+
+                const dicoSynonyms = document.createElement("dico-synonyms");
+                dicoSynonyms.textContent = entry.synonyms; // Display synonyms
 
                 visualDico.appendChild(dicoEng);
                 visualDico.appendChild(dicoYerSigns);
                 visualDico.appendChild(dicoYer);
                 visualDico.appendChild(dicoContext);
+                visualDico.appendChild(dicoSynonyms); // Add synonyms to the visual dictionary
 
                 visualDictionary.appendChild(visualDico);
             }

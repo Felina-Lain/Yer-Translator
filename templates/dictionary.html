@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yer Writer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  <div class="container mx-auto px-4 py-8"> <!-- Changed to max-w-full -->
+    <!-- Centered Title and Subtitle -->
+    <div class="text-center mb-12">
+      <h1 class="text-2xl font-bold mb-2">Dziko Dictionary</h1>
+      <p class="bugs_symbols text-lg">Yers &nbsp;&nbsp;&nbsp; Yat’kat</p>
+    </div>
+
+    <!-- Full-width Grammar Rules -->
+    <div class="mb-8 w-full"> <!-- Removed max-width constraint -->
+      <h2 class="text-xl font-bold mb-4">Some grammar rules:</h2>
+      <div class="text-gray-600 space-y-4">
+        <p>Words are formed by combining roots with prefixes and/or suffixes attached to the subject, the verb or the object.</p>
+        <p>There are no conjugations or gendered words. Default gender is none, and default time is present. There are no articles.</p>
+        <p>Word order is generally subject-object-verb. (Exceptions are only made for music and other forms of speech art) Adjectives follow nouns.</p>
+        <p>Emotions and tones indicated with pheromones. (for convenience, replaced with smileys for us)</p>
+      </div>
+    </div>
+
+    <!-- Full-width Input and Visual Dictionary -->
+    <div class="w-full"> <!-- Removed max-width constraint -->
+      <textarea 
+        id="userInput" 
+        rows="1" 
+        class="w-full p-4 border border-amber-950 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 mb-4"
+        placeholder="Enter word here..."
+      ></textarea>
+      <div id="visualDictionary" class="w-full p-4 rounded-lg shadow-sm">
+    </div>
+
+    <!-- Floating Return Button -->
+    <a href="../index.html" class="fixed top-20 left-20 z-50">
+      <img src="../static/return.png" alt="Return" class="w-12 h-12 hover:scale-110 transition-transform">
+    </a>
+  </div>
+
+  <script src="../static/script.js"></script>
+</body>
+</html>

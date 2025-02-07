@@ -1,21 +1,57 @@
-<title>YtoH</title>
-<link rel="stylesheet" href="../static/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YtoH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/static/style.css"> <!-- Link to your custom CSS -->
+</head>
 
-<h1>Dziko Number Translator</h1>
-<h5>'Tx &nbsp;&nbsp;&nbsp; 'Yat &nbsp;&nbsp;&nbsp; TxZy</h5>
-<h2>Yer to Human</h2>
-  <h5>Yers &nbsp;&nbsp;&nbsp; Kor &nbsp;&nbsp;&nbsp; TxZy'Fresk'Lan</h5>
-  <p>Don't forget to input the - for the orders of magnitude, even if you cannot see them!</p>
-<ligne-input>
-  <input class="bugs_symbols" type="text" id="input_message" name="input_message">
-  <input type="submit" id="valider_button" name="Valider">
-</ligne-input>
+<body>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Centered Title and Subtitle -->
+    <div class="text-center mb-12">
+      <h1 class="text-2xl font-bold mb-2">Dziko Number Translator</h1>
+      <p class="bugs_symbols">'Tx 'Yat TxZy</p>
+      <h2 class="text-2xl font-bold mt-4">Yer to Human</h2>
+      <p class="bugs_symbols">Yers Kor TxZy'Fresk'Lan</p>
+      <p class="text-gray-600 mt-2">Don't forget to input the - for the orders of magnitude, even if you cannot see them!</p>
+    </div>
 
-    <aligne>
-    <a href="Nums.html"><img src="../static/return.png" class="very-small-img"/></a>
-    <answer-column>
-      <h2 id="message"></h2>
-    </answer-column>
-</aligne>
+    <!-- Input Section -->
+    <div class="flex flex-col items-center space-y-4 mb-8">
+      <input
+        type="text"
+        id="input_message"
+        name="input_message"
+        class="w-96 h-12 px-4 py-2 border border-amber-950 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 bugs_symbols"
+        placeholder="Enter Yer number"
+      />
+      <input
+        type="submit"
+        id="valider_button"
+        name="Valider"
+        value="Convert"
+        class="w-32 px-4 py-2 bg-orange-950 text-white rounded-lg hover:bg-orange-850 transition-colors cursor-pointer"
+      />
+    </div>
 
-<script src="../static/script.js"></script>
+    <!-- Answer and Return Button -->
+    <div class="flex flex-col items-center space-y-4">
+      <div class="flex items-center space-x-4">
+        <div class="text-center">
+          <h2 id="message" class="text-4xl mb-6"></h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Return Button -->
+    <a href="Nums.html" class="fixed top-20 left-20 z-50">
+      <img src="../static/return.png" alt="Return" class="w-12 h-12 hover:scale-110 transition-transform">
+    </a>
+  </div>
+
+  <script src="../static/script.js"></script>
+</body>
+</html>
