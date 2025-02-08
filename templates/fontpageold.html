@@ -8,7 +8,6 @@
 </head>
 
 <body>
-  <div class="mainBox">
     <!-- Centered Title and Subtitle -->
     <div class="centeredSection">
       <h1 class="pageTitle">Dziko Font Converter</h1>
@@ -18,19 +17,18 @@
     </div>
 
     <!-- Textareas for Input and Output -->
-    <div class="inputSection">
-      <textarea id="sourceTextarea" rows="7" class="inputField fullWidth"></textarea>
-      <textarea id="targetTextarea" rows="9" class="inputField bugs_symbols" readonly></textarea>
+    <div class="twoColumnGrid">
+      <textarea id="sourceTextarea" rows="7" class="inputFieldOld"></textarea>
+      <textarea id="targetTextarea" rows="9" class="inputFieldOld bugs_symbols" readonly></textarea>
     </div>
 
     <!-- Return Button and Answer Column -->
     <div class="answerSection">
-      <a href="../index.html" class="returnButton">
+      <a href="dictionary.html" class="returnButton">
         <img src="../static/return.png" alt="Return" class="returnIcon very-small-img"/>
       </a>
       <div class="answerContent"></div>
     </div>
-  </div>
 
   <script src="../static/script.js"></script>
 </body>

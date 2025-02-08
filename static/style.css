@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Bug";
-  src: url("insect.otf");
+  src: url("Insect-Regular.otf");
   /* specify the URL of the font file */
 }
 
@@ -18,80 +18,18 @@ body {
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin-bottom: 3rem;
 }
 
 .bugs_symbols{
   font-family: "Bug", sans-serif;
-  font-size: 3vh;
-}
-/* Custom CSS (keep this in your style.css) */
-#visualDictionary visual-dico {
-  background-color: rgba(255, 255, 255, 0.108);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 135%;
-  border-radius: 0.5rem;  /* equivalent to Tailwind's rounded-lg */
-  overflow: hidden;       /* ensures child content respects the rounded corners */
-}
-
-#visualDictionary dico-eng {
-  flex: 0.5;
-  font-weight: bold;
-}
-
-#visualDictionary dico-synonyms {
-  flex: 1;
-  font-weight: bold;
-  font-size: 0.8em;
-}
-
-#visualDictionary dico-yer {
-  flex: 0.8;
-  font-size: 0.8em;
-  text-align: center;
-}
-
-#visualDictionary dico-context {
-  flex: 1.5;
-  font-style: italic;
-  color: #171717;
-}
-
-#visualDictionary dico-yer-signs.bugs_symbols {
-  word-wrap: break-word;
-  color: #151515;
-  font-size: 1.5em;
-}
-
-/* Tailwind-like spacing (can remove if using Tailwind classes) */
-#visualDictionary visual-dico > * {
-  @apply mr-2.5; /* Equivalent to margin-right: 10px */
-  min-width: 0;
-}
-
-/*_______________________________________________________________________*/
-/* Main container */
-.mainBox {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2rem 1rem;
-}
-
-.fullWidth {
-  max-width: 100%;
+  font-size: 1.25rem;
+  -webkit-font-smoothing: 2em;
 }
 
 /* Centered section */
 .centeredSection {
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 /* Page title */
@@ -104,22 +42,20 @@ body {
 
 /* Context text */
 .contextText {
-  text-align: center;
   font-size: 0.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  color: #4b5563; /* text-gray-600 */
 }
 
-/* Subtitle */
-.subtitle {
-  color: #4b5563; /* text-gray-600 */
-  margin-top: 0.5rem;
-}
+/*_________________________For number converter pages__________________________________________*/
 
 /* Two-column grid layout */
 .twoColumnGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  max-height: 55vh;
 }
 
 /* Column styling */
@@ -155,12 +91,15 @@ body {
   background-image: url("toBugNoBG.png");
 }
 
+/*_________________________For number submenu page__________________________________________*/
+
 /* Table Grid */
 .tableGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  width: 25%;
+  grid-template-columns: repeat(8, 1fr); /* 8 columns */
+  grid-template-rows: repeat(2, auto);   /* 2 rows */
+  gap: 0.5rem; /* Add some spacing between tables */
+  width: 100%; /* Adjust width as needed */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
@@ -168,24 +107,32 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns per table */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows per table */
+  gap: .1rem 0;
   border: 1px solid #000;
 }
 
 .tableCell {
-  height: 2rem;
   padding: 0.25rem;
   text-align: center;
   font-size: 1rem;
 }
 
-/* Two Columns Below the Table */
-.twoColumnLayout {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 14rem;
+.tableCell:nth-child(3),
+.tableCell:nth-child(4) {
+  border-top: 1px solid #000; /* Add a top border to the bottom row */
 }
+.tableCell:nth-child(1),
+.tableCell:nth-child(2) {
+  border-bottom: 1px solid #000; /* Add a bottom border to the top row */
+}
+
+.table .bugs_symbols{
+  font-size: 2rem;
+}
+
+/*_________________________ Inputs __________________________________________*/
 
 /* Input Section */
 .inputSection {
@@ -226,7 +173,8 @@ body {
   background-color: #7c2d12; /* hover:bg-orange-850 */
 }
 
-/* Answer Section */
+/*_________________________ Answers __________________________________________*/
+
 .answerSection {
   display: flex;
   flex-direction: column;
@@ -234,50 +182,17 @@ body {
   gap: 1rem;
 }
 
-.answerContent {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .answerText {
   font-size: 2.25rem; /* text-4xl */
   margin-bottom: 1.5rem; /* mb-6 */
+  margin-top: .5rem;
 }
 
 .bugs_symbols.answerText {
   font-size: 3.75rem; /* text-6xl */
 }
 
-/* Grammar Section */
-.grammarSection {
-  margin-bottom: 2rem;
-}
-
-.sectionTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.grammarContent {
-  color: #4b5563; /* text-gray-600 */
-}
-
-.grammarContent p {
-  margin-bottom: 1rem;
-}
-
-/* Visual Dictionary */
-.visualDictionary {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: #f3f4f61f; /* Light gray background */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
-}
-
-/* Return Button */
+/* ___________________________ Return Button____________________________ */
 .returnButton {
   position: fixed;
   top: 5rem;
@@ -295,22 +210,96 @@ body {
   transform: scale(1.1);
 }
 
-/* Image styling */
-img {
-  height: 66.66%;
+
+/* ___________________________ Return Button____________________________ */
+
+.oldFontButton {
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  z-index: 50;
 }
 
+.oldFontIcon {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.2s;
+}
 
+.oldFontIcon:hover {
+  transform: scale(1.1);
+}
 
-/* Textareas for Input and Output */
-.inputSection {
+/*_______________________________ Old font page ________________________________________*/
+
+.inputFieldOld{
+  height: 10rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #431407; /* border-amber-950 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 2rem;
+  outline: none;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.inputFieldOld:focus {
+  border-color: #92400e; /* focus:ring-amber-800 */
+  box-shadow: 0 0 0 2px rgba(146, 64, 14, 0.5); /* focus:ring-2 */
+}
+
+/*_______________________________ Visual Dictionary ________________________________________*/
+
+.visualDictionary {
+  width: 100%;
+}
+
+#visualDictionary visual-dico {
+  background-color: #f3f4f61f; /* Light gray background */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  font-size: 135%;
+  border-radius: 0.5rem;  /* equivalent to Tailwind's rounded-lg */
+  overflow: hidden;       /* ensures child content respects the rounded corners */
 }
 
-/* Very Small Image */
-.very-small-img {
-  width: 2rem;
-  height: 2rem;
+#visualDictionary dico-eng {
+  flex: 0.5;
+  font-weight: bold;
+}
+
+#visualDictionary dico-synonyms {
+  flex: 1;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+#visualDictionary dico-yer {
+  flex: 0.8;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+#visualDictionary dico-context {
+  flex: 1.5;
+  font-style: italic;
+  color: #171717;
+}
+
+#visualDictionary dico-yer-signs.bugs_symbols {
+  word-wrap: break-word;
+  color: #151515;
+  font-size: 1.5em;
+}
+
+/* Tailwind-like spacing (can remove if using Tailwind classes) */
+#visualDictionary visual-dico > * {
+  @apply mr-2.5; /* Equivalent to margin-right: 10px */
+  min-width: 0;
 }

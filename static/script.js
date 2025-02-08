@@ -173,9 +173,25 @@ function getCorrectYerValue(yerValue) {
     return yerExceptions[yerValue] || yerValue; // Return the replacement if it exists, otherwise return the original value
 }
 
+// Function to create a raw data object
+function createPrintableData(words) {
+    return words.map(entry => ({
+        eng: entry.eng, // English value
+        yer: getCorrectYerValue(entry.yer), // Yer value with exceptions handled
+        context: entry.context, // Context value
+        synonym: entry.synonyms // Synonym value
+    }));
+}
+
 // Initialize and set up the visual dictionary
 async function setupVisualDictionary() {
     const Words = await loadWordsFromSheet();
+
+    // Create the printable raw data
+    const printable = createPrintableData(Words);
+
+    // Print the raw data to the console
+    console.log(printable);
 
     userInput.addEventListener("input", function () {
         const searchTerm = userInput.value.toLowerCase();
