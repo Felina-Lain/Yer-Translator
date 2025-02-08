@@ -24,7 +24,7 @@ body {
 .bugs_symbols{
   font-family: "Bug", sans-serif;
   font-size: 1.25rem;
-  -webkit-font-smoothing: 2em;
+  font-weight: normal;
 }
 
 /* Centered section */
@@ -130,6 +130,7 @@ body {
 
 .table .bugs_symbols{
   font-size: 2rem;
+  font-weight: normal;
 }
 
 /*_________________________ Inputs __________________________________________*/
@@ -190,6 +191,7 @@ body {
 
 .bugs_symbols.answerText {
   font-size: 3.75rem; /* text-6xl */
+  font-weight: normal;
 }
 
 /* ___________________________ Return Button____________________________ */
@@ -296,6 +298,7 @@ body {
   word-wrap: break-word;
   color: #151515;
   font-size: 1.5em;
+  font-weight: normal;
 }
 
 /* Tailwind-like spacing (can remove if using Tailwind classes) */
