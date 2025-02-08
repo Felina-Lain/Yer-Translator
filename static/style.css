@@ -13,7 +13,7 @@ html{
 body {
   background: linear-gradient(0deg, rgba(190,161,116,1) 0%, rgba(224,212,176,1) 50%, rgba(165,174,140,1) 100%);
   border: 100px solid transparent;
-  border-image: url('/static/border.png') 30% round;
+  border-image: url('static/border.png') 30% round;
   margin: 0; /* Ensure no extra margin is applied */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   background-repeat: no-repeat;
