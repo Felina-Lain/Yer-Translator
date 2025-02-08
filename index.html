@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yers helper</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/static/style.css"> <!-- Link to your custom CSS -->
 </head>
 
 <body>
-  <div class="container mx-auto px-4 py-8">
+  <div class="mainBox">
     <!-- Centered Title and Subtitle -->
-    <div class="text-center mb-12">
-      <h1 class="text-2xl font-bold mb-2">Dziko Translator</h1>
+    <div class="centeredSection">
+      <h1 class="pageTitle">Dziko Translator</h1>
       <p class="bugs_symbols">'Tx 'Yat TxZy</p>
     </div>
 
     <!-- Two Columns -->
-    <div class="grid grid-cols-2 gap-8">
+    <div class="twoColumnGrid">
       <!-- Column 1 -->
-      <div class="flex flex-col items-center text-center">
-        <div class="mb-4">
+      <div class="column">
+        <div class="columnContent">
           <h2>Numbers</h2>
           <p class="bugs_symbols">Tx'</p>
         </div>
@@ -28,15 +27,14 @@
       </div>
 
       <!-- Column 2 -->
-      <div class="flex flex-col items-center text-center">
-        <div class="mb-4">
+      <div class="column">
+        <div class="columnContent">
           <h2>Vocabulary</h2>
           <p class="bugs_symbols">'Tx'Yat</p>
         </div>
-        <a href="templates/dictionary.html"><img src="static\tablet.png" style="height: 66.66%;"></a>
+        <a href="templates/dictionary.html"><img src="static/tablet.png" style="height: 66.66%;"></a>
       </div>
     </div>
   </div>
 </body>
-
 </html>

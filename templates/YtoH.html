@@ -4,28 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YtoH</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/static/style.css"> <!-- Link to your custom CSS -->
 </head>
 
 <body>
-  <div class="container mx-auto px-4 py-8">
+  <div class="mainBox">
     <!-- Centered Title and Subtitle -->
-    <div class="text-center mb-12">
-      <h1 class="text-2xl font-bold mb-2">Dziko Number Translator</h1>
+    <div class="centeredSection">
+      <h1 class="pageTitle">Dziko Number Translator</h1>
       <p class="bugs_symbols">'Tx 'Yat TxZy</p>
-      <h2 class="text-2xl font-bold mt-4">Yer to Human</h2>
+      <h2 class="pageTitle">Yer to Human</h2>
       <p class="bugs_symbols">Yers Kor TxZy'Fresk'Lan</p>
-      <p class="text-gray-600 mt-2">Don't forget to input the - for the orders of magnitude, even if you cannot see them!</p>
+      <p class="subtitle">Don't forget to input the - for the orders of magnitude, even if you cannot see them!</p>
     </div>
 
     <!-- Input Section -->
-    <div class="flex flex-col items-center space-y-4 mb-8">
+    <div class="inputSection">
       <input
         type="text"
         id="input_message"
         name="input_message"
-        class="w-96 h-12 px-4 py-2 border border-amber-950 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-800 bugs_symbols"
+        class="inputField"
         placeholder="Enter Yer number"
       />
       <input
@@ -33,22 +32,20 @@
         id="valider_button"
         name="Valider"
         value="Convert"
-        class="w-32 px-4 py-2 bg-orange-950 text-white rounded-lg hover:bg-orange-850 transition-colors cursor-pointer"
+        class="submitButton"
       />
     </div>
 
     <!-- Answer and Return Button -->
-    <div class="flex flex-col items-center space-y-4">
-      <div class="flex items-center space-x-4">
-        <div class="text-center">
-          <h2 id="message" class="text-4xl mb-6"></h2>
-        </div>
+    <div class="answerSection">
+      <div class="answerContent">
+        <h2 id="message" class="answerText"></h2>
       </div>
     </div>
 
     <!-- Floating Return Button -->
-    <a href="Nums.html" class="fixed top-20 left-20 z-50">
-      <img src="../static/return.png" alt="Return" class="w-12 h-12 hover:scale-110 transition-transform">
+    <a href="Nums.html" class="returnButton">
+      <img src="../static/return.png" alt="Return" class="returnIcon">
     </a>
   </div>
 

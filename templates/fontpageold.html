@@ -1,21 +1,37 @@
-<title>Yer Writer</title>
-<link rel="stylesheet" href="../static/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yer Writer</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
 
-  
-<h1>Dziko Font Converter</h1>
-<h5>Yers &nbsp;&nbsp;&nbsp; Yat’kat</h5>
-<h2>Human letters to Yer letters</h2>
-<h5>TxZy'Fresk'Lan &nbsp;&nbsp;&nbsp; yat &nbsp;&nbsp;&nbsp;  Kor &nbsp;&nbsp;&nbsp; Yer &nbsp;&nbsp;&nbsp; yat</h5>
-<br/>
-<textboxe>
-<textarea id="sourceTextarea" rows="7" cols="69"></textarea>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<textarea id="targetTextarea" class="bugs_symbols" rows="9" cols="20" readonly></textarea>
-</textboxe>
-<aligne>
-    <a href="../index.html"><img src="../static/return.png" class="very-small-img"/></a>
-    <answer-column>
-      </answer-column>
-</aligne>
+<body>
+  <div class="mainBox">
+    <!-- Centered Title and Subtitle -->
+    <div class="centeredSection">
+      <h1 class="pageTitle">Dziko Font Converter</h1>
+      <h5 class="bugs_symbols">Yers Yat’kat</h5>
+      <h2 class="pageTitle">Human letters to Yer letters</h2>
+      <h5 class="bugs_symbols">TxZy'Fresk'Lan yat Kor Yer yat</h5>
+    </div>
 
-<script src="../static/script.js"></script>
+    <!-- Textareas for Input and Output -->
+    <div class="inputSection">
+      <textarea id="sourceTextarea" rows="7" class="inputField fullWidth"></textarea>
+      <textarea id="targetTextarea" rows="9" class="inputField bugs_symbols" readonly></textarea>
+    </div>
+
+    <!-- Return Button and Answer Column -->
+    <div class="answerSection">
+      <a href="../index.html" class="returnButton">
+        <img src="../static/return.png" alt="Return" class="returnIcon very-small-img"/>
+      </a>
+      <div class="answerContent"></div>
+    </div>
+  </div>
+
+  <script src="../static/script.js"></script>
+</body>
+</html>

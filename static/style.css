@@ -75,56 +75,7 @@ body {
 }
 
 /*_______________________________________________________________________*/
-
 /* Main container */
-.mainBox {
-  width: 100%;
-  max-width: 1280px; /* Equivalent to Tailwind's container */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2rem 1rem; /* py-8 px-4 */
-}
-
-/* Centered section */
-.centeredSection {
-  text-align: center;
-  margin-bottom: 3rem; /* mb-12 */
-}
-
-/* Page title */
-.pageTitle {
-  font-size: 1.5rem; /* text-2xl */
-  line-height: 2rem;
-  font-weight: 700; /* font-bold */
-  margin-bottom: 0.5rem; /* mb-2 */
-}
-
-/* Two-column grid layout */
-.twoColumnGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* grid-cols-2 */
-  gap: 2rem; /* gap-8 */
-}
-
-/* Column styling */
-.column {
-  display: flex;
-  flex-direction: column; /* flex-col */
-  align-items: center; /* items-center */
-  text-align: center; /* text-center */
-}
-
-/* Column content */
-.columnContent {
-  margin-bottom: 1rem; /* mb-4 */
-}
-
-/* Image styling (inline styles in HTML can stay as-is) */
-img {
-  height: 66.66%;
-}
-
-/* Reusable Classes */
 .mainBox {
   width: 100%;
   max-width: 1280px;
@@ -133,11 +84,17 @@ img {
   padding: 2rem 1rem;
 }
 
-.centeredSection {
-  text-align: center;
-  margin-bottom: 1.5rem;
+.fullWidth {
+  max-width: 100%;
 }
 
+/* Centered section */
+.centeredSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Page title */
 .pageTitle {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -145,10 +102,57 @@ img {
   margin-bottom: 0.5rem;
 }
 
+/* Context text */
 .contextText {
   text-align: center;
   font-size: 0.875rem;
   margin-bottom: 1rem;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #4b5563; /* text-gray-600 */
+  margin-top: 0.5rem;
+}
+
+/* Two-column grid layout */
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Column styling */
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.columnContent {
+  margin-bottom: 1rem;
+}
+
+.columnTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.columnImage {
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50% 110%;
+  min-height: 8rem;
+}
+
+.bg-toMan {
+  background-image: url(/static/toManNoBG.png);
+}
+
+.bg-toBug {
+  background-image: url(/static/toBugNoBG.png);
 }
 
 /* Table Grid */
@@ -183,36 +187,94 @@ img {
   height: 14rem;
 }
 
-.column {
+/* Input Section */
+.inputSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.columnContent {
-  margin-bottom: 0.5rem;
+.inputField {
+  width: 24rem;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #431407; /* border-amber-950 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem;
+  outline: none;
 }
 
-.columnTitle {
+.inputField:focus {
+  border-color: #92400e; /* focus:ring-amber-800 */
+  box-shadow: 0 0 0 2px rgba(146, 64, 14, 0.5); /* focus:ring-2 */
+}
+
+.submitButton {
+  width: 8rem;
+  padding: 0.5rem 1rem;
+  background-color: #431407; /* bg-orange-950 */
+  color: white;
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #7c2d12; /* hover:bg-orange-850 */
+}
+
+/* Answer Section */
+.answerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.answerContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.answerText {
+  font-size: 2.25rem; /* text-4xl */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.bugs_symbols.answerText {
+  font-size: 3.75rem; /* text-6xl */
+}
+
+/* Grammar Section */
+.grammarSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
   font-size: 1.25rem;
   font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.columnImage {
-  width: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50% 110%;
-  min-height: 8rem;
+.grammarContent {
+  color: #4b5563; /* text-gray-600 */
 }
 
-.bg-toMan {
-  background-image: url(/static/toManNoBG.png);
+.grammarContent p {
+  margin-bottom: 1rem;
 }
 
-.bg-toBug {
-  background-image: url(/static/toBugNoBG.png);
+/* Visual Dictionary */
+.visualDictionary {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f3f4f61f; /* Light gray background */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
 }
 
 /* Return Button */
@@ -231,4 +293,24 @@ img {
 
 .returnIcon:hover {
   transform: scale(1.1);
+}
+
+/* Image styling */
+img {
+  height: 66.66%;
+}
+
+
+
+/* Textareas for Input and Output */
+.inputSection {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Very Small Image */
+.very-small-img {
+  width: 2rem;
+  height: 2rem;
 }
