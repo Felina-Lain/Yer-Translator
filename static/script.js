@@ -139,8 +139,8 @@ async function loadWordsFromSheet() {
         const text = await response.text();
         const json = JSON.parse(text.substring(47).slice(0, -2)); // Parse JSONP format
 
-        // Extract rows into a usable format
-        const words = json.table.rows.map(row => ({
+        // Extract rows into a usable format, skipping the first row
+        const words = json.table.rows.slice(1).map(row => ({
             eng: row.c[0]?.v || "",  // English word
             yer: row.c[1]?.v || "", // Yer language equivalent
             context: row.c[2]?.v || "", // Context or additional information
