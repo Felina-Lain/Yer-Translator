@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Music Sheet</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+        canvas {
+            border: 1px solid black;
+            display: block;
+        }
+        #controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input {
+            font-size: 16px;
+            width: 50px;
+        }
+        button {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        .sign {
+            position: absolute;
+            text-align: center;
+            user-select: none;
+            margin: 0px;
+            padding: 0px;
+            height: 0px;
+            pointer-events: all; /* Allow clicks to pass through to the canvas */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="musicSheet" width="500" height="500"></canvas>
+    </div>
+    <div id="controls">
+        <label for="sliceCount">Slices:</label>
+        <input type="number" id="sliceCount" value="12" min="1">
+        <button onclick="changeSign('●')">Hit (●)</button>
+        <button onclick="changeSign('—')">Scrape (—)</button>
+        <button onclick="changeSign('～')">Rub (～)</button>
+        <label for="signSize">Size:</label>
+        <input type="number" id="signSize" value="30" min="5" max="50">
+        <button onclick="deleteAllSigns()">Delete All Signs</button>
+        <button onclick="saveMusicSheet()">Save Music Sheet</button>
+        <button onclick="loadMusicSheet()">Load Music Sheet</button>
+    </div>
+    <script src="../static/drum.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Music Sheet</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .square {
+            width: 50px;
+            height: 100px; /* Double the height */
+            border: 1px solid black;
+            position: relative;
+            margin-right: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .inner-row {
+            flex: 1;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        }
+        .inner-row:last-child {
+            border-bottom: none;
+        }
+        #controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input {
+            font-size: 16px;
+            width: 50px;
+        }
+        button {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        .sign {
+            position: absolute;
+            text-align: center;
+            user-select: none;
+            margin: 0px;
+            padding: 0px;
+            height: 0px;
+            pointer-events: all;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+    </div>
+    <div id="controls">
+        <button onclick="addRow()">Add Row</button>
+        <button onclick="removeRow()">Remove Row</button>
+        <button onclick="changeSign('●')">Hit (●)</button>
+        <button onclick="changeSign('～')">Rub (～)</button>
+        <label for="signSize">Size:</label>
+        <input type="number" id="signSize" value="15" min="5" max="30">
+        <button onclick="deleteAllSigns()">Delete All Signs</button>
+        <button onclick="saveMusicSheet()">Save Music Sheet</button>
+        <button onclick="loadMusicSheet()">Load Music Sheet</button>
+    </div>
+    <script src="../static/violin.js"></script>
+</body>
+</html>

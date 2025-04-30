@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarter Circle Music Sheet</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #canvas-container {
+            width: 800px;
+            height: 600px;
+            overflow: auto;
+            border: 1px solid black;
+        }
+        #musicSheet {
+            display: block;
+        }
+        #controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input {
+            font-size: 16px;
+            width: 50px;
+        }
+        button {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        .sign {
+            position: absolute;
+            text-align: center;
+            user-select: none;
+            margin: 0px;
+            padding: 0px;
+            height: 0px;
+            pointer-events: all; /* Allow clicks to pass through to the canvas */
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="musicSheet" width="800" height="600"></canvas>
+    </div>
+    <div id="controls">
+        <label for="rows">Rows:</label>
+        <input type="number" id="rows" value="2" min="1">
+        <label for="columns">Columns:</label>
+        <input type="number" id="columns" value="3" min="1">
+        <button onclick="changeSign('↑')">Up Arrow (↑)</button>
+        <button onclick="changeSign('↓')">Down Arrow (↓)</button>
+        <label for="signSize">Size:</label>
+        <input type="number" id="signSize" value="20" min="5" max="50">
+        <button onclick="deleteAllSigns()">Delete All Signs</button>
+        <button onclick="saveMusicSheet()">Save Music Sheet</button>
+        <button onclick="loadMusicSheet()">Load Music Sheet</button>
+    </div>
+    <script src="../static/scrapper.js"></script>
+</body>
+</html>
