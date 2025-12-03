@@ -44,16 +44,22 @@ validerButton.addEventListener('click', function() {
     Promise.all(loadPromises).then(function(audioBuffers) {
         //start to play at time 0
         var currentTime = 0;
-        
         // Now schedule them IN ORDER
-        audioBuffers.forEach(function(audioBuffer) {
+        audioBuffers.forEach(function(audioBuffer, index) {
             var source = audioContext.createBufferSource(); //like creating a new CD player to play the sounds
             source.buffer = audioBuffer; //load the current sound in
             source.connect(audioContext.destination); //connect to the speakers, allow the sound to play, without it, no sound
             source.start(currentTime); //when to start playing. That's the magic, that check if the previous sound is done before starting the next right on time
             
-            // Add duration for next sound
-            currentTime += audioBuffer.duration;
+            //tell each sound when to start relative to duration of previous sound
+            // Overlap to make sounds smoother after one another
+            var overlapAmount = 0.05; // 50 milliseconds            
+            // Don't overlap the last sound (nothing after it to overlap with)
+            if (index < audioBuffers.length - 1) {
+                currentTime += audioBuffer.duration - overlapAmount;
+            } else {
+                currentTime += audioBuffer.duration; // Last sound gets full duration
+            }
         });
     });
 });
