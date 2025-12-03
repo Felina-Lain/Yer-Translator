@@ -30,7 +30,7 @@ validerButton.addEventListener('click', function() {
         }
         //use the paths to get the files and extract just the audio data
         return fetch(soundPath)
-            .catch(() => fetch("IPA/empty.wav")) // If the letter typed didn't have a sound file, use silence
+            .catch(() => fetch("../IPA/empty.wav")) // If the letter typed didn't have a sound file, use silence
             .then(response => response.arrayBuffer())
             .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
             .catch(error => {
