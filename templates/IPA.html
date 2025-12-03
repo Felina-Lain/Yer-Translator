@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPA reader</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+  <!-- Input Section -->
+       <div class="centeredSection">
+      <h1 class="pageTitle">Dziko Dictionary</h1>
+      <p class="bugs_symbols">Yers Yat’kat</p>
+    
+  <div class="inputSection">
+    <input
+      type="text"
+      id="input_message"
+      name="input_message"
+      min="0"
+      placeholder="Enter a text"
+      class="inputField fullWidth"
+    />
+    <input
+      type="submit"
+      id="valider_button"
+      name="Valider"
+      value="Play"
+      class="submitButton"
+    />
+  </div>
+</div>
+
+<!-- Floating Return Button -->
+    <a href="dictionary.html" class="returnButton">
+      <img src="../static/return.png" alt="Return" class="returnIcon">
+    </a>
+
+<audio id="audio"></audio>
+
+<script src="../static/ipa.js"></script>
+
+</body>
+</html>

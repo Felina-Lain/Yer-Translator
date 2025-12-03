@@ -1,46 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YtoH</title>
-  <link rel="stylesheet" href="static/style.css"> <!-- Link to your custom CSS -->
-</head>
-
-<body>
-
-  <!-- Input Section -->
-  <div class="flex flex-col items-center space-y-4 mb-8">
-    <input
-      type="text"
-      id="input_message"
-      name="input_message"
-      min="0"
-      placeholder="Enter a text"
-      class="inputField fullWidth"
-    />
-    <input
-      type="submit"
-      id="valider_button"
-      name="Valider"
-      value="Play"
-      class="submitButton"
-    />
-  </div>
-
-<audio id="audio"></audio>
-
-</body>
-
-<script>
-  const inputMessage = document.getElementById('input_message');
+const inputMessage = document.getElementById('input_message');
   const validerButton = document.getElementById('valider_button');
   const audio = document.getElementById('audio');
   var audioContext = null;
 
 validerButton.addEventListener('click', function() {
     if(!inputMessage.value){  
-        audio.src = "IPA/silence.wav";
+        audio.src = "../IPA/silence.wav";
         audio.play();
         return;
     }
@@ -59,9 +24,9 @@ validerButton.addEventListener('click', function() {
         //get the file path from the letters
         var soundPath;
         if(letter != " ") {
-            soundPath = "IPA/" + letter + ".wav";
+            soundPath = "../IPA/" + letter + ".wav";
         } else {
-            soundPath = "IPA/silence.wav";
+            soundPath = "../IPA/silence.wav";
         }
         //use the paths to get the files and extract just the audio data
         return fetch(soundPath)
@@ -86,7 +51,3 @@ validerButton.addEventListener('click', function() {
         });
     });
 });
-
-</script>
-
-</html>

@@ -195,6 +195,7 @@ body {
 }
 
 /* ___________________________ Return Button____________________________ */
+
 .returnButton {
   position: fixed;
   top: 5rem;
@@ -248,6 +249,25 @@ body {
 .inputFieldOld:focus {
   border-color: #92400e; /* focus:ring-amber-800 */
   box-shadow: 0 0 0 2px rgba(146, 64, 14, 0.5); /* focus:ring-2 */
+}
+
+/* ___________________________ IPA Button____________________________ */
+
+.IPAButton {
+  position: fixed;
+  top: 5rem;
+  right: 10rem;
+  z-index: 50;
+}
+
+.IPAIcon {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.2s;
+}
+
+.IPAIcon:hover {
+  transform: scale(1.1);
 }
 
 /*_______________________________ Visual Dictionary ________________________________________*/
