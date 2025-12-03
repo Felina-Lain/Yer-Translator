@@ -1,7 +1,7 @@
 const inputMessage = document.getElementById('input_message');
-  const validerButton = document.getElementById('valider_button');
-  const audio = document.getElementById('audio');
-  var audioContext = null;
+const validerButton = document.getElementById('valider_button');
+const audio = document.getElementById('audio');
+var audioContext = null;
 
 validerButton.addEventListener('click', function() {
     if(!inputMessage.value){  
@@ -30,8 +30,14 @@ validerButton.addEventListener('click', function() {
         }
         //use the paths to get the files and extract just the audio data
         return fetch(soundPath)
+            .catch(() => fetch("IPA/empty.wav")) // If the letter typed didn't have a sound file, use silence
             .then(response => response.arrayBuffer())
-            .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer));
+            .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+            .catch(error => {
+                // if it still fail, generate some empty sound file
+                var buffer = audioContext.createBuffer(1, audioContext.sampleRate * 0.1, audioContext.sampleRate);
+                return buffer;
+            });
     });
     
     // Wait for ALL files to load
